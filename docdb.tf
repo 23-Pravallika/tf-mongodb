@@ -1,6 +1,6 @@
 #creates the cluster
 resource "aws_docdb_cluster" "docdb" {
-  cluster_identifier      = "my-docdb-cluster"
+  cluster_identifier      = "robot-${var.ENV}-docdb"
   engine                  = "docdb"
   master_username         = "admin1"
   master_password         = "roboshop1"
