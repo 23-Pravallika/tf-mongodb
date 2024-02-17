@@ -27,5 +27,8 @@ resource "aws_docdb_cluster_instance" "cluster_instances" {
   identifier         = "robo-${var.ENV}-docdb-cluster-instance"
   cluster_identifier = aws_docdb_cluster.docdb.id
   instance_class     = "db.t3.medium"
+    depends_on = [
+      aws_docdb_cluster.docdb
+    ]
 }
 
