@@ -24,10 +24,10 @@ resource "aws_docdb_subnet_group" "docdb_subnet_group" {
 
 # Creates Instances Needed for the DocDB Cluster
 resource "aws_docdb_cluster_instance" "cluster_instances" {
-  count              = 1
+  count              = var.DOCDB_INSTANCE_COUNT
   identifier         = "robo-${var.ENV}-docdb-cluster-instance"
   cluster_identifier = aws_docdb_cluster.docdb.id
-  instance_class     = "db.t3.medium"
+  instance_class     = var.DOCDB_INSTANCE_CLASS
     depends_on = [
       aws_docdb_cluster.docdb
     ]
