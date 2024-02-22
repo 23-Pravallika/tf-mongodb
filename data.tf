@@ -11,12 +11,11 @@ data "terraform_remote_state" "vpc" {
 
 
 data "aws_secretsmanager_secret" "secrets" {
-  name = "robo/secrets"
+   name   =  "robo/secret"
 }
 
 data "aws_secretsmanager_secret_version" "secrets" {
-  secret_id = data.aws_secretsmanager_secret.secrets.id
+  secret_id     = data.aws_secretsmanager_secret.secrets.id
 }
-
 
 
